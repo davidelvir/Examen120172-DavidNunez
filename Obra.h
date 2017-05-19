@@ -15,6 +15,9 @@ class Obra{
     Obra(string,string,string,string);
 
     string getID();
+    string getNombre();
+    string getAutor();
+    string getFecha();
     
 };
 #endif
