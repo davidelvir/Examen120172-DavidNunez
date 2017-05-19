@@ -51,8 +51,16 @@ int main(){
         cout<<"Fecha en que se ingresa: ";
         getline(cin,fecha);
         id = crearID();
+        int sizeObras = obras.size();
+        if(obras.size() == 0){
         
-
+        }else{
+          for(int i = 0; i< sizeObras; i++){
+            if(id.compare(obras[i].getID())==0){
+              id = crearID();
+            }
+          }
+        }
         cout<<"-----Elija el tipo de obra que desea agregar-----"<<endl;
         cout<<"1. Literatura"<<endl;
         cout<<"2. Escultura"<<endl;
