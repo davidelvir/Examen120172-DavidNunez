@@ -6,8 +6,12 @@
 #include "Diseno.h"
 #include "Pintura.h"
 #include "Obra.h"
+#include <stdlib.h>
 
 using namespace std;
+
+string crearID();
+
 int main(){
   vector<Obra>obras;
   vector<Obra>transferidas;
@@ -46,6 +50,7 @@ int main(){
         getline(cin,autor);
         cout<<"Fecha en que se ingresa: ";
         getline(cin,fecha);
+        id = crearID();
         
 
         cout<<"-----Elija el tipo de obra que desea agregar-----"<<endl;
@@ -172,4 +177,63 @@ int main(){
     }//fin switch menu
   }//fin while
 }//fin main
+
+string crearID(){
+  string retorno = "";
+  int temporal;
+  for(int i = 0; i<6;i++){
+    temporal = rand()%16;
+      if(temporal == 0){
+        retorno += "0";
+      }
+      if(temporal == 1){
+        retorno += "1";
+      }
+      if(temporal == 2){
+        retorno += "2";
+      }
+      if(temporal == 3){
+        retorno += "3";
+      }
+      if(temporal == 4){
+        retorno += "4";
+      }
+      if(temporal == 5){
+        retorno += "5";
+      }
+      if(temporal == 6){
+        retorno += "6";
+      }
+      if(temporal == 7){
+        retorno += "7";
+      }
+      if(temporal == 8){
+        retorno += "8";
+      }
+      if(temporal == 9){
+        retorno += "9";
+      }
+      if(temporal==10){
+        retorno += "A";
+      }
+      if(temporal == 11){
+        retorno += "B";
+      }
+      if(temporal == 12){
+        retorno += "C";
+      }
+      if(temporal == 13){
+        retorno += "D";
+      }
+      if(temporal == 14){
+        retorno +="E";
+      }
+      if(temporal == 15){
+        retorno += "F";
+      }
+    
+  }
+  return retorno;
+
+}
 
