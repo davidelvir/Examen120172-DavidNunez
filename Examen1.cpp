@@ -99,32 +99,33 @@ int main(){
             break;
             }
         }//fin switch tipo de obra
-          cout<<"Obra agregada !!";
+          cout<<"Obra agregada !!"<<endl;
           break;
         }//fin case agregar
       case 2:{
         int size = obras.size();
         cout<<"Elija la obra que desea borrar: "<<endl;
         for(int i = 0; i < size; i++){
-          cout<<i<<": "<<obras[i].getNombre()<<endl;
+          cout<<i<<": "<<"  ID: "<<obras[i].getID()<<"  |Nombre: "<<obras[i].getNombre()<<"  |Autor: "<<obras[i].getAutor()<<"  |Fecha ingresado: "<<obras[i].getFecha()<<endl;
         }
         int borrar;
         cin>>borrar;
         obras.erase(obras.begin()+borrar);
-        cout<<"Obra borrada!!";
+        cout<<"Obra borrada!!"<<endl;
         break;
       }//fin case borrar
       case 3:{
         int size = obras.size();
         cout<<"Elija la obra que desea transferir: "<<endl;
         for(int i = 0; i<size;i++){
-          cout<<i<<": "<<obras[i].getNombre()<<endl;
+         cout<<i<<": "<<"  ID: "<<obras[i].getID()<<"  |Nombre: "<<obras[i].getNombre()<<"  |Autor: "<<obras[i].getAutor()<<"  |Fecha ingresado: "<<obras[i].getFecha()<<endl;
+
         }
         int transferir;
         cin>>transferir;
         transferidas.push_back(obras[transferir]);
         obras.erase(obras.begin()+transferir);
-        cout<<"La obra ha sido transferida !!";
+        cout<<"La obra ha sido transferida !!"<<endl;
         break;
       }//fin case trasnferir
       case 4:{
@@ -132,21 +133,42 @@ int main(){
         int size2 = transferidas.size();
         cout<<"-----Obras en el museo-----"<<endl;
         for(int i = 0;i<size;i++){
-          cout<<obras[i].getNombre()<<endl;
+          cout<<i<<": "<<"  ID: "<<obras[i].getID()<<"  |Nombre: "<<obras[i].getNombre()<<"  |Autor: "<<obras[i].getAutor()<<"  |Fecha ingresado: "<<obras[i].getFecha()<<endl;
+         
         }
-        cout<<"-------------------------";
+        cout<<"-------------------------"<<endl;
         cout<<"-----Obras transferidas-----"<<endl;
         for(int i = 0;i<size2;i++){
-          cout<<transferidas[i].getNombre()<<endl;
+
+          cout<<i<<": "<<"  ID: "<<transferidas[i].getID()<<"  |Nombre: "<<transferidas[i].getNombre()<<"  |Autor: "<<transferidas[i].getAutor()<<"  |Fecha ingresado: "<<transferidas[i].getFecha()<<endl;
+         
         }
         break;
       }//fin de listar
-
+      case 5:{
+        int size = obras.size();
+        string filtro;
+        string spam;
+        getline(cin,spam);
+        cout<<"Ingrese el nombre del artista que desea buscar: ";
+        getline(cin,filtro);
+        for(int i = 0;i<size;i++){
+          if(filtro.compare(obras[i].getAutor())!=0){
+            
+          }else{
+            //cout<<"Obras por "<<filtro<<": "<<endl;
+            cout<<i<<": "<<"  ID: "<<obras[i].getID()<<"  |Nombre: "<<obras[i].getNombre()<<"  |Autor: "<<obras[i].getAutor()<<"  |Fecha ingresado: "<<obras[i].getFecha()<<endl;
+           
+          }
+        }
+        break;
+      }//fin filtrar
       
-      /*case 6:
+      case 6:{
         vivo = false;
         cout << "Ha salido!"<<endl;
-        break;*/
+        break;
+      }
     }//fin switch menu
   }//fin while
 }//fin main
