@@ -15,15 +15,7 @@ string crearID();
 int main(){
   vector<Obra>obras;
   vector<Obra>transferidas;
-  /*Obra ob;
-  Escultura es;
-  Literatura lit;
-  Diseno dis;
-  Pintura p;
-
-  vector<Diseno>prueba;
-  prueba.push_back(dis);*/
-
+  
   bool vivo = true;
 
   while(vivo){
