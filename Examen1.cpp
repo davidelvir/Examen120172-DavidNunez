@@ -46,7 +46,7 @@ int main(){
         getline(cin,autor);
         cout<<"Fecha en que se ingresa: ";
         getline(cin,fecha);
-        cout<<endl;
+        
 
         cout<<"-----Elija el tipo de obra que desea agregar-----"<<endl;
         cout<<"1. Literatura"<<endl;
@@ -98,26 +98,56 @@ int main(){
             obras.push_back(dis);
             break;
             }
-        }
+        }//fin switch tipo de obra
+          cout<<"Obra agregada !!";
           break;
+        }//fin case agregar
+      case 2:{
+        int size = obras.size();
+        cout<<"Elija la obra que desea borrar: "<<endl;
+        for(int i = 0; i < size; i++){
+          cout<<i<<": "<<obras[i].getNombre()<<endl;
         }
-        case 2:{
-          int size = obras.size();
-          cout<<"Elija la obra que desea borrar."<<endl;
-          for(int i = 0; i < size; i++){
-            cout<<i<<": "<<obras[i].getNombre()<<endl;
-          }
-          int borrar;
-          cin>>borrar;
-          obras.erase(obras.begin()+borrar);
-          break;
+        int borrar;
+        cin>>borrar;
+        obras.erase(obras.begin()+borrar);
+        cout<<"Obra borrada!!";
+        break;
+      }//fin case borrar
+      case 3:{
+        int size = obras.size();
+        cout<<"Elija la obra que desea transferir: "<<endl;
+        for(int i = 0; i<size;i++){
+          cout<<i<<": "<<obras[i].getNombre()<<endl;
         }
+        int transferir;
+        cin>>transferir;
+        transferidas.push_back(obras[transferir]);
+        obras.erase(obras.begin()+transferir);
+        cout<<"La obra ha sido transferida !!";
+        break;
+      }//fin case trasnferir
+      case 4:{
+        int size = obras.size();
+        int size2 = transferidas.size();
+        cout<<"-----Obras en el museo-----"<<endl;
+        for(int i = 0;i<size;i++){
+          cout<<obras[i].getNombre()<<endl;
+        }
+        cout<<"-------------------------";
+        cout<<"-----Obras transferidas-----"<<endl;
+        for(int i = 0;i<size2;i++){
+          cout<<transferidas[i].getNombre()<<endl;
+        }
+        break;
+      }//fin de listar
+
       
       /*case 6:
         vivo = false;
         cout << "Ha salido!"<<endl;
         break;*/
-    }
-  }
-}
+    }//fin switch menu
+  }//fin while
+}//fin main
 
